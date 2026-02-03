@@ -22,6 +22,9 @@
 		<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
 		<ReadyToRun>true</ReadyToRun>
 		<NeutralLanguage>en</NeutralLanguage>
+		<PackageProjectUrl>https://github.com/jalaljaleh/HalunDns.Windows</PackageProjectUrl>
+		<PackageIcon>dns.ico</PackageIcon>
+		<RepositoryUrl>https://github.com/jalaljaleh/HalunDns.Windows</RepositoryUrl>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -36,6 +39,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Update="dns.ico">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
 		<None Update="serverlist.json">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>

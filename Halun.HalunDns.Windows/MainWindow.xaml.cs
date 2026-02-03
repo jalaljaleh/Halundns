@@ -1,4 +1,4 @@
-﻿using Halun.HalunDns.Windows; 
+﻿using Halun.HalunDns.Windows;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -63,7 +63,6 @@ namespace Halun.HalunDns.Windows
             btnClose.Click += (_, _) => this.Close();
 
             // External Links
-            MenuBtnAbout.Click += (_, _) => OpenUrl("https://jalaljaleh.github.io/");
             BtnCopyright.Click += (_, _) => OpenUrl("https://jalaljaleh.github.io/");
 
             BtnMinimize.Click += (_, _) => WindowState = WindowState.Minimized;
@@ -84,6 +83,7 @@ namespace Halun.HalunDns.Windows
             MenuBtnRemoveAll.Click += MenuBtnRemoveAll_Click;
             this.BtnExpand.Click += BtnExpand_Click;
         }
+        private void OpenLick_Click(object s, RoutedEventArgs e) => OpenUrl((s as MenuItem).Tag.ToString());
 
         private void MenuBtnEdit_Click(object sender, RoutedEventArgs e)
         {
@@ -91,7 +91,7 @@ namespace Halun.HalunDns.Windows
             {
                 var editWin = new DnsServerWindow(selected);
                 if (editWin.ShowDialog() == true)
-                {      
+                {
                     SaveDnsServers();
                     //DataGridServers.Items.Refresh();
                 }
@@ -323,7 +323,7 @@ namespace Halun.HalunDns.Windows
                 return;
             }
 
-            string targetUrl = InputUrlBypass.Text.Trim();
+            string targetUrl = InputUrlBypass.Text.Replace("https://","").Replace("http://", "").Replace("www.", "").Trim();
             if (string.IsNullOrWhiteSpace(targetUrl))
             {
                 LogAction("No URL provided for bypass test.");
@@ -669,6 +669,8 @@ namespace Halun.HalunDns.Windows
             SetIcon(true);
             LabelStatus.Content = $"Connected to {server.Name}";
             NotifyIcon.ToolTipText = $"Connected to {server.Name}";
+            TrayMenuBtnDisconnect.Visibility = Visibility.Visible;
+
             this.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF83FF96"));
 
             BtnDnsPrimaryLabel.Text = server.DnsAddress;
@@ -698,6 +700,7 @@ namespace Halun.HalunDns.Windows
 
             LabelStatus.Content = "Default DNS";
             NotifyIcon.ToolTipText = $"Disconnected";
+            TrayMenuBtnDisconnect.Visibility = Visibility.Collapsed;
             SetIcon(false);
             this.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF9883FF"));
 

@@ -21,6 +21,7 @@
         <tb:TaskbarIcon x:Name="NotifyIcon" IconSource="{Binding PathIcon}" ToolTipText="Halun Dns">
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu Style="{StaticResource DarkContextMenu}">
+                    <MenuItem Visibility="Collapsed" x:Name="TrayMenuBtnDisconnect" Click="ToggleBtnConnect_Unchecked" Header="Disconnect"  />
                     <MenuItem x:Name="TrayMenuBtnRestoreWindow" Header="Show Window"  />
                     <MenuItem x:Name="TrayMenuBtnExit" Header="Exit"  />
                 </ContextMenu>
@@ -38,31 +39,51 @@
                     <Image Width="25" Height="30" Margin="0,0,8,0" Source="{Binding PathIcon}" />
                     <TextBlock Visibility="Collapsed" Text="{Binding Title, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" VerticalAlignment="Center" FontWeight="SemiBold"/>
 
-                    <!-- Menu bar -->
-                    <Menu Grid.Row="0" Margin="20,0" Padding="5,5,5,5" Background="#FF0A0A0A">
-
-                        <MenuItem Header="File">
+                    <Menu Grid.Row="0" Background="#FF0A0A0A">
+                        <MenuItem Header="_File">
                             <MenuItem x:Name="MenuBtnImport" Header="Import"/>
                             <MenuItem x:Name="MenuBtnExport" Header="Export" />
                             <Separator/>
-                            <MenuItem Header="Exit"  x:Name="MenuBtnExit" />
+                            <MenuItem x:Name="MenuBtnExit" Header="Exit" />
                         </MenuItem>
-                        <MenuItem Header="Edit">
+
+                        <MenuItem Header="_Edit">
                             <MenuItem x:Name="MenuBtnAdd" Header="New"/>
                             <MenuItem x:Name="MenuBtnEdit" Header="Edit"/>
                             <Separator/>
                             <MenuItem x:Name="MenuBtnRemove" Header="Remove"/>
                             <MenuItem x:Name="MenuBtnRemoveAll" Header="Remove All"/>
                         </MenuItem>
-                        <MenuItem Header="Tools">
+
+                        <MenuItem Header="_Tools">
                             <MenuItem x:Name="MenuBtnPing" Header="Ping"/>
                             <MenuItem x:Name="MenuBtnPingAll" Header="Ping All" />
                         </MenuItem>
-                        <MenuItem Header="Help">
-                           
-                            <MenuItem x:Name="MenuBtnAbout" Header="About" />
+
+                        <MenuItem Header="_Help">
+                            <MenuItem Header="Updates" Click="OpenLick_Click" Tag="https://github.com/jalaljaleh/HalunDns.Windows/releases" />
+
+                            <MenuItem Header="Developer">
+                                <MenuItem Header="Github" Click="OpenLick_Click" Tag="https://github.com/jalaljaleh" />
+                                <MenuItem Header="Website" Click="OpenLick_Click" Tag="https://jalaljaleh.github.io" />
+                                <MenuItem Header="Telegram" Click="OpenLick_Click" Tag="https://t.me/jalaljaleh" />
+                                <MenuItem Header="Instagram" Click="OpenLick_Click" Tag="https://instagram.com/jalaljaleh" />
+                            </MenuItem>
+
+                            <MenuItem Header="Report">
+                                <MenuItem Header="Bugs" Click="OpenLick_Click" Tag="https://github.com/jalaljaleh/HalunDns.Windows/issues" />
+                                <MenuItem Header="New Features" Click="OpenLick_Click" Tag="https://github.com/jalaljaleh/HalunDns.Windows/issues" />
+                            </MenuItem>
+
+                            <Separator/>
+                            <MenuItem Header="Community Telegram" Click="OpenLick_Click" Tag="https://t.me/haluntm" />
+                            <MenuItem Header="Discord" Click="OpenLick_Click" Tag="https://discord.com/invite/x5j4cZtnWR" />
+                            <MenuItem Header="Github" Click="OpenLick_Click" Tag="https://github.com/jalaljaleh/HalunDns.Windows" />
+                            <MenuItem Header="About" Click="OpenLick_Click" Tag="https://github.com/jalaljaleh" />
                         </MenuItem>
                     </Menu>
+
+
                     <StackPanel Orientation="Horizontal" Height="40" Width="856">
                         <TextBox x:Name="InputUrlBypass" Tag="Enter url to check Bypass" Style="{StaticResource ModernDarkTextBox}" TextWrapping="Wrap" Background="#FF0E0E0E" BorderBrush="#FF101012" Height="35" Width="300"/>
                         <Button x:Name="BtnUrlBypass"  Margin="10,0"   Content="Test"  Background="#FF401544"  BorderBrush="{x:Null}"  Foreground="#FFE6E6E6"    Width="80"  Height="35">
@@ -254,7 +275,7 @@
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="#" Binding="{Binding Priority}" Width="40" IsReadOnly="True" FontSize="11" />
-                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="150" IsReadOnly="True" FontSize="13" Foreground="White"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" MinWidth="80" Width="90" IsReadOnly="True" FontSize="13" Foreground="White"/>
                         <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" IsReadOnly="True" FontSize="12"/>
                         <DataGridTextColumn Header="Bypass" Binding="{Binding Bypass}" FontSize="11" Width="120" IsReadOnly="True" />
                         <DataGridTextColumn Header="Ping" Binding="{Binding Ping}" Width="80" IsReadOnly="True" />
