@@ -1,0 +1,276 @@
+﻿<Window x:Class="Halun.HalunDns.Windows.MainWindow" 
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:tb="http://www.hardcodet.net/taskbar"   
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:av="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework" 
+        mc:Ignorable="av" 
+        Title="Halun Dns" WindowStartupLocation="CenterScreen" Foreground="#E5E5E7" FontFamily="Segoe UI"
+        av:DesignWidth="900" av:DesignHeight="746" Background="#FF0A0A0A" BorderBrush="#FF9883FF" Icon="/dns.ico" WindowStyle="None" BorderThickness="2,2,2,2" AllowsTransparency="True" ResizeMode="CanResizeWithGrip">
+
+
+    <Grid x:Name="WindowG">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="49"/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <tb:TaskbarIcon x:Name="NotifyIcon" IconSource="{Binding PathIcon}" ToolTipText="Halun Dns">
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu Style="{StaticResource DarkContextMenu}">
+                    <MenuItem x:Name="TrayMenuBtnRestoreWindow" Header="Show Window"  />
+                    <MenuItem x:Name="TrayMenuBtnExit" Header="Exit"  />
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+        </tb:TaskbarIcon>
+
+        <Border x:Name="TitleBorder" Grid.Row="0" WindowChrome.IsHitTestVisibleInChrome="False" Background="#FF0A0A0A">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="12"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="86"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="6,0,6,0" Height="40">
+                    <Image Width="25" Height="30" Margin="0,0,8,0" Source="{Binding PathIcon}" />
+                    <TextBlock Visibility="Collapsed" Text="{Binding Title, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" VerticalAlignment="Center" FontWeight="SemiBold"/>
+
+                    <!-- Menu bar -->
+                    <Menu Grid.Row="0" Margin="20,0" Padding="5,5,5,5" Background="#FF0A0A0A">
+
+                        <MenuItem Header="File">
+                            <MenuItem x:Name="MenuBtnImport" Header="Import"/>
+                            <MenuItem x:Name="MenuBtnExport" Header="Export" />
+                            <Separator/>
+                            <MenuItem Header="Exit"  x:Name="MenuBtnExit" />
+                        </MenuItem>
+                        <MenuItem Header="Edit">
+                            <MenuItem x:Name="MenuBtnAdd" Header="New"/>
+                            <MenuItem x:Name="MenuBtnEdit" Header="Edit"/>
+                            <Separator/>
+                            <MenuItem x:Name="MenuBtnRemove" Header="Remove"/>
+                            <MenuItem x:Name="MenuBtnRemoveAll" Header="Remove All"/>
+                        </MenuItem>
+                        <MenuItem Header="Tools">
+                            <MenuItem x:Name="MenuBtnPing" Header="Ping"/>
+                            <MenuItem x:Name="MenuBtnPingAll" Header="Ping All" />
+                        </MenuItem>
+                        <MenuItem Header="Help">
+                           
+                            <MenuItem x:Name="MenuBtnAbout" Header="About" />
+                        </MenuItem>
+                    </Menu>
+                    <StackPanel Orientation="Horizontal" Height="40" Width="856">
+                        <TextBox x:Name="InputUrlBypass" Tag="Enter url to check Bypass" Style="{StaticResource ModernDarkTextBox}" TextWrapping="Wrap" Background="#FF0E0E0E" BorderBrush="#FF101012" Height="35" Width="300"/>
+                        <Button x:Name="BtnUrlBypass"  Margin="10,0"   Content="Test"  Background="#FF401544"  BorderBrush="{x:Null}"  Foreground="#FFE6E6E6"    Width="80"  Height="35">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource ModernSoftButton}">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text.Length, ElementName=InputUrlBypass, FallbackValue=0}" Value="0">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Text.IsEmpty, ElementName=InputUrlBypass}" Value="False">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </StackPanel>
+
+                </StackPanel>
+                <StackPanel x:Name="Btns" Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" Height="35" Margin="13,0,8,0">
+                    <Button  x:Name="BtnMinimize"  Style="{StaticResource ModernSoftButton}" WindowChrome.IsHitTestVisibleInChrome="True" Background="{x:Null}" BorderBrush="{x:Null}">
+                        <Path Data="M0,6 L10,6" Stroke="#E5E5E7" StrokeThickness="1.6" Width="12" Height="12"/>
+                    </Button>
+
+                    <Button x:Name="btnClose" Height="35" Width="40" Style="{StaticResource ModernSoftButton}" WindowChrome.IsHitTestVisibleInChrome="True" Background="{x:Null}" BorderBrush="{x:Null}">
+                        <Path Data="M0,0 L10,10 M10,0 L0,10" Stroke="#E5E5E7" StrokeThickness="1.6" Width="12" Height="12"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Grid x:Name="Body"  Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="350"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="GridRight"  Grid.Column="1" Margin="0,-30,0,-35">
+                <StackPanel x:Name="PanelRight" Margin="10"  Orientation="Vertical">
+                    <ToggleButton  IsChecked="False" x:Name="ToggleBtnConnect" Content="CONNECT" Width="150" Height="150"   Cursor="Hand" Foreground="White" BorderBrush="{x:Null}" Margin="0,40,0,0">
+                        <ToggleButton.Template>
+                            <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                <Grid>
+                                    <Border x:Name="PulseRing" CornerRadius="100" Background="#FF6D1777" Opacity="0" RenderTransformOrigin="0.5,0.5">
+                                        <Border.RenderTransform>
+                                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                        </Border.RenderTransform>
+                                    </Border>
+
+                                    <Border x:Name="GlowEffect" CornerRadius="100" Background="#7C5BFF" Opacity="0.2">
+                                        <Border.Effect>
+                                            <DropShadowEffect x:Name="GlowShadow" Color="#7C5BFF" BlurRadius="25" ShadowDepth="0" Opacity="0.5"/>
+                                        </Border.Effect>
+                                    </Border>
+
+                                    <Border x:Name="ButtonBody" CornerRadius="100" BorderThickness="5" RenderTransformOrigin="0.5,0.5" BorderBrush="{x:Null}">
+                                        <Border.RenderTransform>
+                                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                        </Border.RenderTransform>
+                                        <Border.Background>
+                                            <RadialGradientBrush>
+                                                <GradientStop Color="#FF64166D" Offset="1"/>
+                                                <GradientStop Color="#FF8A1A96" Offset="0"/>
+                                            </RadialGradientBrush>
+                                        </Border.Background>
+
+                                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Path x:Name="BtnIcon" Data="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z" 
+                                          Fill="White" Width="24" Height="24" Stretch="Uniform" Margin="0,0,0,5"/>
+
+                                            <TextBlock x:Name="BtnText" Text="{TemplateBinding Content}" 
+                                               FontSize="18" FontWeight="Bold" Foreground="White" 
+                                               HorizontalAlignment="Center" TextAlignment="Center"/>
+
+                                            <TextBlock x:Name="StatusText" Margin="5" Text="Tap to start" FontSize="11" 
+                                               Opacity="0.7" Foreground="White" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="ButtonBody" Property="BorderBrush" Value="White"/>
+                                        <Setter TargetName="GlowEffect" Property="Opacity" Value="0.5"/>
+                                    </Trigger>
+
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter TargetName="ButtonBody" Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+
+                                    <Trigger Property="IsChecked" Value="True">
+                                        <Setter TargetName="StatusText" Property="Text" Value="CONNECTED"/>
+                                        <Setter TargetName="BtnText" Property="Text" Value="DISCONNECT"/>
+
+                                        <Trigger.EnterActions>
+                                            <BeginStoryboard x:Name="StartConnecting">
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="GlowShadow"
+                                Storyboard.TargetProperty="Color"
+                                To="#00D26A" Duration="0:0:0.3"/>
+
+                                                    <ColorAnimation Storyboard.TargetName="ButtonBody"
+                                Storyboard.TargetProperty="(Border.Background).(RadialGradientBrush.GradientStops)[0].Color"
+                                To="#00A854" Duration="0:0:0.3"/>
+                                                    <ColorAnimation Storyboard.TargetName="ButtonBody"
+                                Storyboard.TargetProperty="(Border.Background).(RadialGradientBrush.GradientStops)[1].Color"
+                                To="#007D3E" Duration="0:0:0.3"/>
+
+                                                    <ColorAnimation Storyboard.TargetName="PulseRing"
+                                Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                To="#00D26A" Duration="0:0:0.1"/>
+
+                                                    <DoubleAnimation Storyboard.TargetName="PulseRing"
+                                 Storyboard.TargetProperty="Opacity"
+                                 From="0.6" To="0" Duration="0:0:1.5"
+                                 RepeatBehavior="Forever"/>
+
+                                                    <DoubleAnimation Storyboard.TargetName="PulseRing"
+                                 Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                                 From="1" To="1.4" Duration="0:0:1.5"
+                                 RepeatBehavior="Forever"/>
+
+                                                    <DoubleAnimation Storyboard.TargetName="PulseRing"
+                                 Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                                 From="1" To="1.4" Duration="0:0:1.5"
+                                 RepeatBehavior="Forever"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </Trigger.EnterActions>
+
+                                        <Trigger.ExitActions>
+                                            <RemoveStoryboard BeginStoryboardName="StartConnecting"/>
+                                        </Trigger.ExitActions>
+                                    </Trigger>
+
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </ToggleButton.Template>
+                    </ToggleButton>
+
+                    <Label x:Name="LabelStatus" FontWeight="Bold" Padding="10" Margin="10" Content="Connected" Foreground="White" FontSize="14" HorizontalContentAlignment="Center"/>
+
+                    <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="BtnDnsPing" Width="150" Height="60" Style="{StaticResource ModernSoftButton}" Background="#FF101012" BorderBrush="#FF1E2630" >
+                            <Grid Width="140"  Height="50">
+                                <TextBlock Margin="5"  FontSize="10" Text="DNS Delay" Foreground="#FF68D2FF" />
+                                <TextBlock x:Name="BtnDnsPingLabel" Text="{Binding SelectedItem.Ping, ElementName=DataGridServers}" FontWeight="Bold" FontSize="12"  Margin="5,10,0,0" Foreground="#FFA2FF81" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+
+                    <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="BtnDnsPrimary" Width="150" Height="60" Style="{StaticResource ModernSoftButton}" Background="#FF101012" BorderBrush="#FF1E2630" >
+                            <Grid Width="140"  Height="50">
+                                <TextBlock Margin="5"  FontSize="10" Text="Primary DNS" Foreground="#FF68D2FF" />
+                                <TextBlock FontWeight="Bold" FontSize="15" x:Name="BtnDnsPrimaryLabel" Text="192.158.23" Margin="5,10,0,0" Foreground="#FFF171FF" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Grid>
+                        </Button>
+                        <Button x:Name="BtnDnsSecondary" Margin="10,0,0,0" Width="150" Height="60" Style="{StaticResource ModernSoftButton}" Background="#FF101012" >
+                            <Grid Width="140"  Height="50">
+                                <TextBlock Margin="5" FontSize="10" Text="Secondary DNS" Foreground="#FF68D2FF" />
+                                <TextBlock FontWeight="Bold" FontSize="15" x:Name="BtnDnsSecondaryLabel" Text="192.158.23" Margin="5,10,0,0" Foreground="#FFF171FF" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                    <ScrollViewer x:Name="ScrollerLogger" Height="200" VerticalScrollBarVisibility="Auto">
+                        <TextBlock x:Name="LabelLoggerMain"  TextWrapping="Wrap"   Text="Program Started"  Foreground="#FFFCE0FF"  Padding="10,10,10,10"/>
+                    </ScrollViewer>
+                </StackPanel>
+                <Button x:Name="BtnCopyright" Padding="15" Margin="0,50" Style="{StaticResource ModernSoftButton}" Content="© 2026 Halun - Jalal Jaleh All rights reserved." VerticalAlignment="Bottom" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFCCCCCC" FontSize="10"/>
+                <Button x:Name="BtnExpand" Style="{StaticResource ModernSoftButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,30,0,0" Content="🔅" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" FontWeight="Normal" Foreground="#FFF6ABFF"/>
+            </Grid>
+            <Grid x:Name="GridLeft" Margin="15,0" >
+                <DataGrid x:Name="DataGridServers" 
+          ItemsSource="{Binding DnsServers}" 
+          CanUserResizeColumns="True"  
+          CanUserResizeRows="True" 
+          HeadersVisibility="All"
+          Style="{StaticResource ModernSoftDataGrid}" 
+          FontSize="12" 
+          Background="{x:Null}" 
+          BorderBrush="{x:Null}" 
+          Foreground="White" 
+          RowHeight="40" 
+          MinRowHeight="40">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="#" Binding="{Binding Priority}" Width="40" IsReadOnly="True" FontSize="11" />
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="150" IsReadOnly="True" FontSize="13" Foreground="White"/>
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" IsReadOnly="True" FontSize="12"/>
+                        <DataGridTextColumn Header="Bypass" Binding="{Binding Bypass}" FontSize="11" Width="120" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Ping" Binding="{Binding Ping}" Width="80" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="100" IsReadOnly="True" />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Grid>
+
+        </Grid>
+        <Grid x:Name="Bottom" Grid.Row="2">
+            <TextBlock Name="LabelLogger" TextWrapping="Wrap" Text="Program Started" Padding="15,5,0,0" Foreground="#FFDA83E4"/>
+        </Grid>
+
+
+    </Grid>
+
+
+</Window>
