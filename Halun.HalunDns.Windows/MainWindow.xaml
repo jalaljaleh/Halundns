@@ -61,7 +61,7 @@
                         </MenuItem>
 
                         <MenuItem Header="_Help">
-                            <MenuItem Header="Updates" Click="OpenLick_Click" Tag="https://github.com/jalaljaleh/HalunDns.Windows/releases" />
+                            <MenuItem Header="Updates" Click="OpenLick_Click" Tag="https://github.com/jalaljaleh/Halundns/releases" />
 
                             <MenuItem Header="Developer">
                                 <MenuItem Header="Github" Click="OpenLick_Click" Tag="https://github.com/jalaljaleh" />
@@ -71,14 +71,14 @@
                             </MenuItem>
 
                             <MenuItem Header="Report">
-                                <MenuItem Header="Bugs" Click="OpenLick_Click" Tag="https://github.com/jalaljaleh/HalunDns.Windows/issues" />
-                                <MenuItem Header="New Features" Click="OpenLick_Click" Tag="https://github.com/jalaljaleh/HalunDns.Windows/issues" />
+                                <MenuItem Header="Bugs" Click="OpenLick_Click" Tag="https://github.com/jalaljaleh/Halundns/issues" />
+                                <MenuItem Header="New Features" Click="OpenLick_Click" Tag="https://github.com/jalaljaleh/Halundns/issues" />
                             </MenuItem>
 
                             <Separator/>
                             <MenuItem Header="Community Telegram" Click="OpenLick_Click" Tag="https://t.me/haluntm" />
                             <MenuItem Header="Discord" Click="OpenLick_Click" Tag="https://discord.com/invite/x5j4cZtnWR" />
-                            <MenuItem Header="Github" Click="OpenLick_Click" Tag="https://github.com/jalaljaleh/HalunDns.Windows" />
+                            <MenuItem Header="Github" Click="OpenLick_Click" Tag="https://github.com/jalaljaleh/Halundns" />
                             <MenuItem Header="About" Click="OpenLick_Click" Tag="https://github.com/jalaljaleh" />
                         </MenuItem>
                     </Menu>

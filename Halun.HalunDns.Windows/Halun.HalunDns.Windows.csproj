@@ -22,9 +22,9 @@
 		<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
 		<ReadyToRun>true</ReadyToRun>
 		<NeutralLanguage>en</NeutralLanguage>
-		<PackageProjectUrl>https://github.com/jalaljaleh/HalunDns.Windows</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/jalaljaleh/Halundns</PackageProjectUrl>
 		<PackageIcon>dns.ico</PackageIcon>
-		<RepositoryUrl>https://github.com/jalaljaleh/HalunDns.Windows</RepositoryUrl>
+		<RepositoryUrl>https://github.com/jalaljaleh/Halundns</RepositoryUrl>
 	</PropertyGroup>
 
 	<ItemGroup>
