@@ -108,4 +108,3 @@ Developed with ❤️ for a freer internet.
 - GitHub: https://github.com/jalaljaleh
 - Company/Brand: Halun
 
-If you want, I can bump the version to `1.0.0.0`, create a Release build, zip `bin\Release`, and prepare a draft GitHub Release. I can also help create an Inno Setup installer and sign the executable if you provide the PFX certificate.
