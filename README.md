@@ -1,7 +1,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/jalaljaleh/HalunDns">
-    <img src="/Halun.HalunDns.Windows/dns.ico" alt="Logo" width="120" height="120">
+    <img src="/Halundns/dns.ico" alt="Logo" width="120" height="120">
   </a>
 
   <h3 align="center">Halun DNS</h3>
@@ -19,7 +19,7 @@
 </div>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/.NET-10.0--windows-blueviolet?style=flat-square" alt=".NET 10">
+  <img src="https://img.shields.io/badge/.NET-Framework-4.7.2-blueviolet?style=flat-square" alt=".NET Framework 4.7.2">
   <img src="https://img.shields.io/badge/Platform-Windows-blue?style=flat-square" alt="Platform Windows">
   <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License MIT">
   <a href="https://github.com/jalaljaleh/HalunDns"><img src="https://komarev.com/ghpvc/?username=jalaljaleh&label=PROJECT%20VIEWS&style=flat-square" alt="Views"></a>
@@ -27,7 +27,7 @@
 
 # Halun DNS
 
-**Halun DNS** is a modern Windows utility designed for users who need fast, reliable, and secure DNS management. Built on **.NET 10**, it features a sophisticated parallel ping engine and advanced bypass testing for sanctions and filtering.
+**Halun DNS** is a modern Windows utility designed for users who need fast, reliable, and secure DNS management. Built on **.NET Framework 4.7.2**, it features a sophisticated parallel ping engine and advanced bypass testing for sanctions and filtering.
 
 
 
@@ -43,8 +43,8 @@
 ## Getting Started
 
 ### Prerequisites
-- Windows 10 or 11
-- [.NET 10 Runtime](https://dotnet.microsoft.com/download)
+- Windows 7, 8, 10 or 11 (x64 recommended)
+- [.NET Framework 4.7.2 Runtime](https://dotnet.microsoft.com/download/dotnet-framework/net472)
 
 ### Installation
 1. Download the latest release from the [Releases](https://github.com/jalaljaleh/HalunDns/releases) page.
@@ -91,3 +91,21 @@ Open a Pull Request
 Jalal Jaleh - @jalaljaleh Project Link: https://github.com/jalaljaleh/HalunDns
 
 Developed with ❤️ for a freer internet.
+
+## Release Checklist (done-by-agent)
+
+- [x] Remove or hide any embedded secrets, keys, or certificates (none found).
+- [x] Ensure COM visibility is disabled by default (`AssemblyInfo` set `ComVisible(false)`).
+- [x] Set neutral resources language to `en-US`.
+- [x] Update company and copyright information in `AssemblyInfo`.
+- [ ] Bump version numbers in `AssemblyInfo` if you want a new release version.
+- [ ] Code-sign binaries with your Authenticode certificate before publishing installers.
+- [ ] Create a proper release (zip/installer) and upload to GitHub Releases.
+
+## Author & Company
+
+- Name: Jalal Jaleh
+- GitHub: https://github.com/jalaljaleh
+- Company/Brand: Halun
+
+If you want, I can bump the version to `1.0.0.0`, create a Release build, zip `bin\Release`, and prepare a draft GitHub Release. I can also help create an Inno Setup installer and sign the executable if you provide the PFX certificate.

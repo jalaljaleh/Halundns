@@ -9,9 +9,9 @@ using System.Windows;
 [assembly: AssemblyTitle("Halundns")]
 [assembly: AssemblyDescription("A high-performance, parallel-testing DNS management tool for Windows.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Haluntm")]
+[assembly: AssemblyCompany("Halun")]
 [assembly: AssemblyProduct("Halundns")]
-[assembly: AssemblyCopyright("Copyright ©  2026")]
+[assembly: AssemblyCopyright("Copyright © Jalal Jaleh 2026")]
 [assembly: AssemblyTrademark("Halun")]
 [assembly: AssemblyCulture("")]
 
