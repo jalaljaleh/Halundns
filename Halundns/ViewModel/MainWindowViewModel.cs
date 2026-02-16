@@ -1,4 +1,9 @@
 ﻿using Halun.HalunDns.Windows;
+// Halun DNS - MainWindowViewModel
+// Purpose: ViewModel for main window. Handles loading servers, pinging,
+// applying DNS settings, and UI state. This file is safe to publish.
+// Author: Jalal Jaleh
+// License: MIT
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;

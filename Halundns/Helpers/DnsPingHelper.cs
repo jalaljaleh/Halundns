@@ -1,4 +1,10 @@
-﻿using System;
+﻿// Halun DNS - DnsPingHelper
+// Purpose: Implements pinging and bypass tests used by the UI to
+// evaluate DNS server latency and reachability for specific URLs.
+// Author: Jalal Jaleh
+// License: MIT
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;

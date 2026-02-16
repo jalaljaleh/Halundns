@@ -1,4 +1,9 @@
-﻿using System;
+﻿// Halun DNS - Converters
+// Purpose: Value converters used by XAML bindings in the project.
+// Author: Jalal Jaleh
+// License: MIT
+
+using System;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;

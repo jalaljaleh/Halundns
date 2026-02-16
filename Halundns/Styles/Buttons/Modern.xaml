@@ -1,4 +1,8 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<!-- Halun DNS - Button Styles (Modern.xaml)
+     Purpose: UI styles for buttons used across the app.
+     Author: Jalal Jaleh
+     License: MIT -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <SolidColorBrush x:Key="BtnBaseBrush" Color="#131821"/>

@@ -1,4 +1,9 @@
-﻿namespace Halun.HalunDns.Windows
+﻿// Halun DNS - PingResult
+// Purpose: Represents the result of a ping operation performed by the
+// DnsPingHelper. Contains success flag and roundtrip time.
+// Author: Jalal Jaleh
+// License: MIT - see LICENSE.txt in repository root
+namespace Halun.HalunDns.Windows
 {
     public class PingResult
     {

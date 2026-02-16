@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Windows.Input;
 
+// Halun DNS - RelayCommand
+// Lightweight ICommand implementation used for UI bindings.
+// Author: Jalal Jaleh
+// License: MIT
+
 namespace Halun.HalunDns
 {
     public class RelayCommand : ICommand

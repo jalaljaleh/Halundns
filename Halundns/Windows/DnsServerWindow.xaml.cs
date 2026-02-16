@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Halun DNS - DnsServerWindow
+// Purpose: Window for adding/editing DNS server entries.
+// Author: Jalal Jaleh
+// License: MIT
+using System;
 using System.Windows;
 using System.Windows.Input;
 

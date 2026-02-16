@@ -1,4 +1,11 @@
-﻿using System;
+﻿// Halun DNS - DnsWindowsHelper
+// Purpose: Contains methods that interact with Windows networking APIs
+// to get and set DNS server entries. Requires administrative privileges
+// for modifying system network settings.
+// Author: Jalal Jaleh
+// License: MIT
+
+using System;
 using System.Collections.Generic;
 using System.Management;
 using System.Net.NetworkInformation;

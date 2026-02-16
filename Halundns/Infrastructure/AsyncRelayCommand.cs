@@ -2,6 +2,10 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
 
+// Halun DNS - AsyncRelayCommand
+// Purpose: Lightweight async ICommand helper for async view-model operations.
+// Author: Jalal Jaleh
+// License: MIT
 namespace Halun.HalunDns
 {
     public class AsyncRelayCommand : ICommand

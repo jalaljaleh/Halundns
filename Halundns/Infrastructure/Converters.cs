@@ -1,3 +1,8 @@
+// Halun DNS - Infrastructure Converters
+// Purpose: WPF value converters used in bindings.
+// Author: Jalal Jaleh
+// License: MIT
+
 using System;
 using System.Globalization;
 using System.Windows.Data;

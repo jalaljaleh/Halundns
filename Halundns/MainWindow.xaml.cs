@@ -5,6 +5,12 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
 
+// Halun DNS - MainWindow
+// Purpose: Main UI window code-behind. Handles window chrome and tray
+// interactions. No sensitive data here.
+// Author: Jalal Jaleh
+// License: MIT
+
 namespace Halun.HalunDns.Windows
 {
     public partial class MainWindow : Window
