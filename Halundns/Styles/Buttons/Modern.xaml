@@ -1,0 +1,114 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="BtnBaseBrush" Color="#131821"/>
+    <SolidColorBrush x:Key="BtnBorderBrush" Color="#26323A"/>
+    <SolidColorBrush x:Key="BtnContentBrush" Color="#EAF0F6"/>
+    <SolidColorBrush x:Key="BtnDisabledBgBrush" Color="#0D1114"/>
+    <SolidColorBrush x:Key="BtnDisabledContentBrush" Color="#6F7B84"/>
+
+    <LinearGradientBrush x:Key="PrimaryGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#7C5BFF" Offset="0"/>
+        <GradientStop Color="#5F3BE0" Offset="1"/>
+    </LinearGradientBrush>
+
+    <QuadraticEase x:Key="SoftEase" EasingMode="EaseOut"/>
+
+    <ControlTemplate x:Key="ModernSoftButtonTemplate" TargetType="Button">
+        <Grid RenderTransformOrigin="0.5,0.5">
+            <Border x:Name="Shadow" CornerRadius="3" Background="Transparent">
+                <Border.Effect>
+                    <DropShadowEffect Color="#000000" BlurRadius="8" ShadowDepth="1" Opacity="0.10"/>
+                </Border.Effect>
+            </Border>
+
+            <Border x:Name="Chrome" 
+                    Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="{TemplateBinding BorderThickness}"  
+                    CornerRadius="3"  
+                    Padding="{TemplateBinding Padding}">
+                <Border.RenderTransform>
+                    <TranslateTransform Y="0"/>
+                </Border.RenderTransform>
+                <Grid>
+                    <Border x:Name="Overlay" CornerRadius="3" Background="#FFFFFFFF" Opacity="0" IsHitTestVisible="False"/>
+                    <ContentPresenter x:Name="contentPresenter"  
+                                      Content="{TemplateBinding Content}"  
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"  
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                      RecognizesAccessKey="True"/>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard x:Name="HoverOn">
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="Overlay" Storyboard.TargetProperty="Opacity" To="0.06" Duration="0:0:0.22" EasingFunction="{StaticResource SoftEase}"/>
+                            <DoubleAnimation Storyboard.TargetName="Shadow" Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.BlurRadius)" To="14" Duration="0:0:0.22" EasingFunction="{StaticResource SoftEase}"/>
+                            <DoubleAnimation Storyboard.TargetName="Shadow" Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Opacity)" To="0.16" Duration="0:0:0.22" EasingFunction="{StaticResource SoftEase}"/>
+                            <DoubleAnimation Storyboard.TargetName="Chrome" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" To="-1" Duration="0:0:0.22" EasingFunction="{StaticResource SoftEase}"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <StopStoryboard BeginStoryboardName="HoverOn"/>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="Overlay" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.22" EasingFunction="{StaticResource SoftEase}"/>
+                            <DoubleAnimation Storyboard.TargetName="Shadow" Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.BlurRadius)" To="8" Duration="0:0:0.22" EasingFunction="{StaticResource SoftEase}"/>
+                            <DoubleAnimation Storyboard.TargetName="Shadow" Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Opacity)" To="0.10" Duration="0:0:0.22" EasingFunction="{StaticResource SoftEase}"/>
+                            <DoubleAnimation Storyboard.TargetName="Chrome" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" To="0" Duration="0:0:0.22" EasingFunction="{StaticResource SoftEase}"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+
+            <Trigger Property="IsPressed" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard x:Name="PressedOn">
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="Overlay" Storyboard.TargetProperty="Opacity" To="0.10" Duration="0:0:0.06"/>
+                            <DoubleAnimation Storyboard.TargetName="Chrome" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" To="1.2" Duration="0:0:0.06"/>
+                            <DoubleAnimation Storyboard.TargetName="Shadow" Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Opacity)" To="0.09" Duration="0:0:0.06"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <StopStoryboard BeginStoryboardName="PressedOn"/>
+                </Trigger.ExitActions>
+            </Trigger>
+
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter TargetName="Chrome" Property="BorderBrush" Value="#3E4A56"/>
+            </Trigger>
+
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Chrome" Property="Background" Value="{StaticResource BtnDisabledBgBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource BtnDisabledContentBrush}"/>
+                <Setter TargetName="Overlay" Property="Opacity" Value="0"/>
+                <Setter TargetName="Shadow" Property="Visibility" Value="Collapsed"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style x:Key="ModernSoftButton" TargetType="Button">
+        <Setter Property="MinHeight" Value="20"/>
+        <Setter Property="MinWidth" Value="25"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="{StaticResource BtnContentBrush}"/>
+        <Setter Property="Background" Value="{StaticResource BtnBaseBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BtnBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template" Value="{StaticResource ModernSoftButtonTemplate}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+</ResourceDictionary>

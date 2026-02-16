@@ -1,0 +1,370 @@
+﻿[
+  {
+    "Name": "Shecan",
+    "Description": "Iranian DNS known to bypass some local restrictions.",
+    "DnsAddress": "178.22.122.100",
+    "DnsAddressAlt": "185.51.200.2",
+    "Type": "Bypass",
+    "Priority": 300
+  },
+  {
+    "Name": "Shecan Pro",
+    "Description": "Alternative Shecan servers for stability.",
+    "DnsAddress": "178.22.122.101",
+    "DnsAddressAlt": "185.51.200.1",
+    "Type": "Bypass",
+    "Priority": 301
+  },
+  {
+    "Name": "Electro Gaming",
+    "Description": "Iranian DNS optimized for gaming routes.",
+    "DnsAddress": "78.157.42.100",
+    "DnsAddressAlt": "78.157.42.101",
+    "Type": "Bypass",
+    "Priority": 302
+  },
+  {
+    "Name": "Shelter",
+    "Description": "Known Iranian DNS for bypass usage.",
+    "DnsAddress": "91.92.255.242",
+    "DnsAddressAlt": "91.92.255.160",
+    "Type": "Bypass",
+    "Priority": 303
+  },
+  {
+    "Name": "Begzar",
+    "Description": "Iranian DNS sometimes used for filtering bypass.",
+    "DnsAddress": "185.55.226.26",
+    "DnsAddressAlt": "185.55.225.25",
+    "Type": "Bypass",
+    "Priority": 304
+  },
+  {
+    "Name": "403 DNS",
+    "Description": "Advanced bypass DNS for developers and restricted services.",
+    "DnsAddress": "10.202.10.10",
+    "DnsAddressAlt": "10.202.10.11",
+    "Type": "Bypass",
+    "Priority": 305
+  },
+  {
+    "Name": "Radar Game",
+    "Description": "Specialized Iranian bypass DNS for low-latency gaming.",
+    "DnsAddress": "10.202.10.10",
+    "DnsAddressAlt": "10.202.10.11",
+    "Type": "Bypass",
+    "Priority": 306
+  },
+  {
+    "Name": "Pishgaman",
+    "Description": "Local Iranian bypass DNS frequently used for gaming and service access.",
+    "DnsAddress": "5.202.100.100",
+    "DnsAddressAlt": "5.202.100.101",
+    "Type": "Bypass",
+    "Priority": 308
+  },
+  {
+    "Name": "Asiatech Web-Game",
+    "Description": "Optimized Asiatech internal DNS for lower ping and content bypass.",
+    "DnsAddress": "185.98.113.113",
+    "DnsAddressAlt": "185.98.114.114",
+    "Type": "Bypass",
+    "Priority": 309
+  },
+  {
+    "Name": "Cloudflare",
+    "Description": "Very fast, privacy-focused global DNS. Supports DoH/DoT.",
+    "DnsAddress": "1.1.1.1",
+    "DnsAddressAlt": "1.0.0.1",
+    "Type": "Public",
+    "Priority": 100
+  },
+  {
+    "Name": "Google",
+    "Description": "Reliable global DNS with excellent uptime.",
+    "DnsAddress": "8.8.8.8",
+    "DnsAddressAlt": "8.8.4.4",
+    "Type": "Public",
+    "Priority": 101
+  },
+  {
+    "Name": "Quad9",
+    "Description": "Security-focused DNS that blocks malicious domains.",
+    "DnsAddress": "9.9.9.9",
+    "DnsAddressAlt": "149.112.112.112",
+    "Type": "Security",
+    "Priority": 102
+  },
+  {
+    "Name": "AdGuard DNS",
+    "Description": "Blocks ads, trackers, and malware.",
+    "DnsAddress": "94.140.14.14",
+    "DnsAddressAlt": "94.140.15.15",
+    "Type": "Security",
+    "Priority": 103
+  },
+  {
+    "Name": "AdGuard Family",
+    "Description": "Ad blocking + adult content filtering.",
+    "DnsAddress": "94.140.14.15",
+    "DnsAddressAlt": "94.140.15.16",
+    "Type": "Family",
+    "Priority": 104
+  },
+  {
+    "Name": "Clean Browsing Family",
+    "Description": "Family-safe DNS with adult filtering.",
+    "DnsAddress": "185.228.168.168",
+    "DnsAddressAlt": "185.228.169.168",
+    "Type": "Family",
+    "Priority": 105
+  },
+  {
+    "Name": "OpenDNS Family",
+    "Description": "Cisco OpenDNS with parental control.",
+    "DnsAddress": "208.67.222.123",
+    "DnsAddressAlt": "208.67.220.123",
+    "Type": "Family",
+    "Priority": 106
+  },
+  {
+    "Name": "UncensoredDNS",
+    "Description": "Danish uncensored DNS focused on freedom and privacy.",
+    "DnsAddress": "91.239.100.100",
+    "DnsAddressAlt": "89.233.43.71",
+    "Type": "Privacy",
+    "Priority": 110
+  },
+  {
+    "Name": "DNS.Watch",
+    "Description": "German no-logging DNS service.",
+    "DnsAddress": "84.200.69.80",
+    "DnsAddressAlt": "84.200.70.40",
+    "Type": "Privacy",
+    "Priority": 111
+  },
+  {
+    "Name": "Mullvad DNS",
+    "Description": "Strong privacy DNS from Mullvad VPN.",
+    "DnsAddress": "194.242.2.2",
+    "DnsAddressAlt": "194.242.2.3",
+    "Type": "Privacy",
+    "Priority": 112
+  },
+  {
+    "Name": "NextDNS",
+    "Description": "Customizable DNS with profiles for privacy, security and bypass.",
+    "DnsAddress": "45.90.28.0",
+    "DnsAddressAlt": "45.90.30.0",
+    "Type": "Advanced",
+    "Priority": 120
+  },
+  {
+    "Name": "ControlD",
+    "Description": "Highly customizable DNS for region unlock and filtering.",
+    "DnsAddress": "76.76.10.0",
+    "DnsAddressAlt": "76.76.2.0",
+    "Type": "Advanced",
+    "Priority": 121
+  },
+  {
+    "Name": "Level3 (Lumen)",
+    "Description": "Backbone provider DNS, very low latency.",
+    "DnsAddress": "209.244.0.4",
+    "DnsAddressAlt": "209.244.0.3",
+    "Type": "Gaming",
+    "Priority": 200
+  },
+  {
+    "Name": "Comodo Secure DNS",
+    "Description": "Stable DNS often good for gaming.",
+    "DnsAddress": "8.26.56.26",
+    "DnsAddressAlt": "8.20.247.20",
+    "Type": "Gaming",
+    "Priority": 201
+  },
+  {
+    "Name": "Shatel DNS",
+    "Description": "Local ISP DNS, good for internal routing speed.",
+    "DnsAddress": "85.15.1.15",
+    "DnsAddressAlt": "85.15.1.14",
+    "Type": "Local",
+    "Priority": 307
+  },
+  {
+    "Name": "AliDNS (Alibaba)",
+    "Description": "The most popular DNS in China. Best for accessing Chinese apps/sites and low latency in Asia.",
+    "DnsAddress": "223.5.5.5",
+    "DnsAddressAlt": "223.6.6.6",
+    "Type": "Global-CN",
+    "Priority": 500
+  },
+  {
+    "Name": "Baidu DNS",
+    "Description": "Fast and reliable Chinese DNS with high security and anti-hijacking features.",
+    "DnsAddress": "180.76.76.76",
+    "DnsAddressAlt": "114.114.114.114",
+    "Type": "Global-CN",
+    "Priority": 501
+  },
+  {
+    "Name": "Censurfridns (Denmark)",
+    "Description": "Privately run, uncensored DNS from Denmark. No logging, no filtering.",
+    "DnsAddress": "91.239.100.100",
+    "DnsAddressAlt": "89.233.43.71",
+    "Type": "Privacy-EU",
+    "Priority": 502
+  },
+  {
+    "Name": "FreeDNS (Austria)",
+    "Description": "A privacy-first European DNS located in Austria. No redirection or logging.",
+    "DnsAddress": "37.235.1.174",
+    "DnsAddressAlt": "37.235.1.177",
+    "Type": "Privacy-EU",
+    "Priority": 503
+  },
+  {
+    "Name": "OpenNIC (USA/Global)",
+    "Description": "Democratic, community-governed DNS that avoids corporate censorship.",
+    "DnsAddress": "185.121.177.177",
+    "DnsAddressAlt": "169.239.202.202",
+    "Type": "Privacy-US",
+    "Priority": 504
+  },
+  {
+    "Name": "Hurricane Electric (USA)",
+    "Description": "Backbone provider DNS. Extremely stable and robust routing.",
+    "DnsAddress": "74.82.42.42",
+    "DnsAddressAlt": "2001:470:20::2",
+    "Type": "Public-US",
+    "Priority": 505
+  },
+  {
+    "Name": "Tencent DNS (DNSPod)",
+    "Description": "Major Chinese provider. Excellent for bypassing regional content locks in Asia.",
+    "DnsAddress": "119.29.29.29",
+    "DnsAddressAlt": "182.254.116.116",
+    "Type": "Global-CN",
+    "Priority": 506
+  },
+  {
+    "Name": "CyberGhost DNS",
+    "Description": "Secure DNS from the privacy giant. Good for bypassing ISP tracking.",
+    "DnsAddress": "38.132.106.139",
+    "DnsAddressAlt": "194.187.251.67",
+    "Type": "Security-EU",
+    "Priority": 507
+  },
+  {
+    "Name": "Neustar UltraDNS (Family)",
+    "Description": "US-based filtered DNS for blocking adult and malicious content.",
+    "DnsAddress": "156.154.70.3",
+    "DnsAddressAlt": "156.154.71.3",
+    "Type": "Family-US",
+    "Priority": 508
+  },
+  {
+    "Name": "Irancell (MTN)",
+    "Description": "Official Irancell DNS. Best for internal routing on MTNIrancell SIM cards.",
+    "DnsAddress": "10.201.32.161",
+    "DnsAddressAlt": "10.201.32.162",
+    "Type": "Local-ISP",
+    "Priority": 600
+  },
+  {
+    "Name": "Hamrah-e-Aval (MCI)",
+    "Description": "Official MCI DNS. Recommended for users on the Hamrah-e-Aval mobile network.",
+    "DnsAddress": "192.168.194.113",
+    "DnsAddressAlt": "192.168.196.114",
+    "Type": "Local-ISP",
+    "Priority": 601
+  },
+  {
+    "Name": "RighTel",
+    "Description": "Official RighTel DNS. Fast response times for RighTel 3G/4G/5G users.",
+    "DnsAddress": "37.221.96.10",
+    "DnsAddressAlt": "37.221.96.11",
+    "Type": "Local-ISP",
+    "Priority": 602
+  },
+  {
+    "Name": "Zitel",
+    "Description": "Zitel TD-LTE DNS. Known for high stability and low latency in Tehran/Karaj.",
+    "DnsAddress": "185.117.152.10",
+    "DnsAddressAlt": "185.117.152.11",
+    "Type": "Local-ISP",
+    "Priority": 603
+  },
+  {
+    "Name": "Pars Online",
+    "Description": "Major ADSL/Fiber provider DNS. Reliable for local web browsing.",
+    "DnsAddress": "91.98.98.98",
+    "DnsAddressAlt": "91.99.99.99",
+    "Type": "Local-ISP",
+    "Priority": 604
+  },
+  {
+    "Name": "Asiatech",
+    "Description": "General Asiatech ISP DNS for ADSL and OWA users.",
+    "DnsAddress": "194.225.70.70",
+    "DnsAddressAlt": "194.225.10.10",
+    "Type": "Local-ISP",
+    "Priority": 605
+  },
+  {
+    "Name": "Pishgaman",
+    "Description": "Pishgaman Kavir Yazd DNS, used for wide-area ADSL connections.",
+    "DnsAddress": "5.202.100.101",
+    "DnsAddressAlt": "5.202.100.102",
+    "Type": "Local-ISP",
+    "Priority": 606
+  },
+  {
+    "Name": "Afranet",
+    "Description": "Afranet Data Center DNS, very low latency for internal hosting queries.",
+    "DnsAddress": "217.218.155.155",
+    "DnsAddressAlt": "217.218.127.127",
+    "Type": "Local-ISP",
+    "Priority": 607
+  },
+  {
+    "Name": "Starlink Default",
+    "Description": "Official SpaceX Starlink DNS. Optimized for satellite handovers and low-earth orbit routing.",
+    "DnsAddress": "192.168.100.1",
+    "DnsAddressAlt": "8.8.8.8",
+    "Type": "Satellite",
+    "Priority": 700
+  },
+  {
+    "Name": "Alternate DNS",
+    "Description": "Global ad-blocking and privacy DNS that often escapes common filtering.",
+    "DnsAddress": "76.76.19.19",
+    "DnsAddressAlt": "76.223.122.150",
+    "Type": "Privacy",
+    "Priority": 404
+  },
+  {
+    "Name": "CIRA Canadian Shield",
+    "Description": "High-security Canadian DNS, excellent for privacy and stability.",
+    "DnsAddress": "149.112.121.10",
+    "DnsAddressAlt": "149.112.122.10",
+    "Type": "Security",
+    "Priority": 405
+  },
+  {
+    "Name": "Yandex DNS",
+    "Description": "Russian DNS provider, often provides fast routes for Eastern European traffic.",
+    "DnsAddress": "77.88.8.8",
+    "DnsAddressAlt": "77.88.8.1",
+    "Type": "Public",
+    "Priority": 406
+  },
+  {
+    "Name": "Level 3 (Legacy)",
+    "Description": "Standard Level 3 communications DNS used by many global backbones.",
+    "DnsAddress": "4.2.2.2",
+    "DnsAddressAlt": "4.2.2.1",
+    "Type": "Public",
+    "Priority": 407
+  }
+]
