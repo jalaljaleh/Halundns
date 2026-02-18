@@ -44,7 +44,7 @@
 
         <Border x:Name="TitleBorder" Grid.Row="0" MouseDown="TitleBorder_MouseDown" WindowChrome.IsHitTestVisibleInChrome="False">
             <Border.Background>
-                <SolidColorBrush Color="#FF080808" Opacity="0.91"/>
+                <SolidColorBrush Color="#FF080808" Opacity="0.9"/>
             </Border.Background>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -135,9 +135,9 @@
 
             <Border  Grid.Column="1" >
                 <Border.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.98">
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.95">
                         <GradientStop Color="#FF121212" Offset="0.995"/>
-                        <GradientStop Color="#FF0C0C0C" Offset="0"/>
+                        <GradientStop Color="#FF090909" Offset="0"/>
                     </LinearGradientBrush>
                 </Border.Background>
 
@@ -270,10 +270,10 @@
           FontSize="12" 
           BorderBrush="{x:Null}" 
           Foreground="White" 
-          RowHeight="40" 
+          RowHeight="50" 
           MinRowHeight="40" BorderThickness="0,0,0,0">
                     <DataGrid.Background>
-                        <SolidColorBrush Color="#FF101010" Opacity="0.98"/>
+                        <SolidColorBrush Color="#FF101010" Opacity="0.95"/>
                     </DataGrid.Background>
 
                     <DataGrid.Columns>
