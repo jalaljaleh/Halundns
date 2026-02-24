@@ -35,8 +35,11 @@
         <tb:TaskbarIcon x:Name="NotifyIcon" IconSource="{Binding PathIcon}" ToolTipText="{Binding StatusText}" TrayLeftMouseUp="NotifyIcon_TrayLeftMouseUp">
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu Style="{StaticResource DarkContextMenu}">
-                    <MenuItem Visibility="{Binding DisconnectTrayVisibility}" Command="{Binding ToggleExpandCommand}" Header="Disconnect"  />
+                    <MenuItem IsEnabled="False" Command="{Binding RestoreWindowCommand}" Header="{Binding StatusText}"  />
+                    <MenuItem Header="🔓 Disconnect"  Visibility="{Binding DisconnectTrayVisibility}" Command="{Binding DisconnectServerCommand}"  />
+                    <Separator/>
                     <MenuItem Command="{Binding RestoreWindowCommand}" Header="Show Window"  />
+                    <Separator/>
                     <MenuItem Command="{Binding ShutdownCommand}" Header="Exit"  />
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
@@ -98,7 +101,7 @@
 
                     <StackPanel Margin="5,0,0,0" Orientation="Horizontal" Height="40" Width="856">
                         <TextBox x:Name="InputUrlBypass" Text="{Binding TargetUrl, UpdateSourceTrigger=PropertyChanged}" Tag="Enter url to check Bypass" Style="{StaticResource ModernDarkTextBox}" TextWrapping="Wrap" Background="#FF0E0E0E" BorderBrush="#FF101012" Height="35" Width="300"/>
-                        <Button Command="{Binding BypassTestCommand}" Content="{Binding BypassButtonText}" Margin="10,0" Background="#FF401544" BorderBrush="{x:Null}" Foreground="#FFE6E6E6" Width="80" Height="35">
+                        <Button Command="{Binding BypassTestCommand}" Content="{Binding BypassButtonText}" Margin="10,0" Background="#FFA14CA9" BorderBrush="{x:Null}" Foreground="#FFE6E6E6" Width="80" Height="35">
                             <Button.Style>
                                 <Style TargetType="Button" BasedOn="{StaticResource ModernSoftButton}">
                                     <Setter Property="Visibility" Value="Collapsed" />
@@ -273,7 +276,10 @@
           RowHeight="50" 
           MinRowHeight="40" BorderThickness="0,0,0,0">
                     <DataGrid.Background>
-                        <SolidColorBrush Color="#FF101010" Opacity="0.95"/>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.95">
+                            <GradientStop Color="#FF0A0A0A"/>
+                            <GradientStop Color="#FF121212" Offset="1"/>
+                        </LinearGradientBrush>
                     </DataGrid.Background>
 
                     <DataGrid.Columns>

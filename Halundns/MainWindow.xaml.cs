@@ -38,6 +38,11 @@ namespace Halun.HalunDns.Windows
                 this.WindowState = state; //
                 if (state == WindowState.Normal) this.Activate(); //
             };
+            _viewModel.OnShutdown += (s, e) =>
+            {
+                this.Hide();
+                Environment.Exit(0);
+            };
         }
         protected override void OnSourceInitialized(EventArgs e)
         {

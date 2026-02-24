@@ -96,7 +96,7 @@ namespace Halun.HalunDns
         // --- Events ---
         public event EventHandler RequestScrollToBottom; // For UI scrolling
         public event EventHandler<WindowState> RequestWindowStateChange;
-
+        public event EventHandler OnShutdown;
         // --- Commands ---
         public ICommand LoadDataCommand { get; }
         public ICommand PingCommand { get; }
@@ -116,7 +116,7 @@ namespace Halun.HalunDns
         public ICommand ShutdownCommand { get; }
         public ICommand RestoreWindowCommand { get; }
         public ICommand MinimizeWindowCommand { get; }
-
+        public ICommand DisconnectServerCommand { get; }
         public MainWindowViewModel()
         {
             _windowBorderBrush = BrushDisconnected;
@@ -137,6 +137,8 @@ namespace Halun.HalunDns
             EditServerCommand = new RelayCommand(_ => EditServer());
             RemoveServerCommand = new RelayCommand(_ => RemoveServer());
             RemoveAllCommand = new RelayCommand(_ => RemoveAllServers());
+
+            DisconnectServerCommand = new RelayCommand(_ => DisconnectServer());
 
             ImportCommand = new RelayCommand(_ => ImportServers());
             ExportCommand = new RelayCommand(_ => ExportServers());
@@ -525,7 +527,7 @@ namespace Halun.HalunDns
 
         private void ShutdownApp()
         {
-            Environment.Exit(0);
+            OnShutdown?.Invoke(this, EventArgs.Empty);
         }
 
         private void LogAction(string message)
